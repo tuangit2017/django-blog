@@ -1,0 +1,14 @@
+
+{% extends "base.html" %}
+{% block page_title %} Register {% endblock  %}
+
+{% block content %}
+
+<!-- Title -->
+<br>
+<h1>Thank you for join with us. Sign Up Success.</h1>
+<h1>Welcome {{ new_user.first_name }}!</h1>
+<p>Your account has been successfully created. Now you can <a href="{% url "login" %}">log in</a>.</p>
+
+
+{% endblock %}

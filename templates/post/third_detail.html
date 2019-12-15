@@ -1,0 +1,63 @@
+
+
+{% extends "base.html" %}
+{% block page_title %} Post-Detail {% endblock  %}
+{% load static %}
+
+{% block content %}
+
+<br>
+<h1>{{post.title}}</h1>
+ <!-- Author  and Date/Time-->
+ <p class="lead"> by <a href="#">{{post.author}}</a> </p>
+<p class="date">Published on {{post.publish}} by {{post.author}}</p>
+<hr>
+<!-- Preview Image -->
+<img class="img-fluid rounded" src="{{ post.image.url }}" alt="">
+<hr>
+<p>{{post.body}}</p>
+
+<hr>
+<!-- Comments Form -->
+<div class="card my-4">
+  {% if new_comment %}
+  <h2>Your comment has been added.</h2>
+  {% else %}
+  <h5 class="card-header">Leave a Comment:</h5>
+  <div class="card-body">
+
+    <form action="." method="POST">
+      {% csrf_token %}
+      <input type="hidden" class="form-control" id="id_slug" name="slug" value="{{post.title}}">
+      <div class="form-group">
+        <label for="id_subject">User Name</label>
+      <input type="text" class="form-control" id="id_author" name="author">
+    </div>
+    <div class="form-group">
+      <label for="id_subject">Enter Comment</label>
+        <textarea class="form-control" rows="6" name="comment_text" id="id_comment_text"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Single Comment -->
+{% for comment in post.comments.all %}
+<hr>
+<div class="media mb-4">
+  <img class="d-flex mr-3 rounded-circle" src="{% static 'images/user.png' %}" alt="">
+  <div class="media-body">
+    <h5 class="text-danger">  <strong>{{ comment.author }}</strong></h5>
+    <h6>On: {{ comment.created_date }}</h6>
+    <p>{{ comment.comment_text }}</p>
+  </div>
+
+
+</div>
+{% endfor %}
+
+
+{% endblock content %}

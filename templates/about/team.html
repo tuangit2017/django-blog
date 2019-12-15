@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block page_title %} About {% endblock  %}
+
+{% block content %}
+<style>
+  .bg-1 {
+    background-color: #1abc9c;
+    color: #ffffff;
+  }
+</style>
+
+<div class="bg-1">
+  <div class="container text-center">
+    <!-- Title -->
+    <br>
+	 <div class="alert alert-primary" role="alert">
+		<h1 class="display-4 text-danger">Team Members</h1>
+	</div>
+
+    <hr>
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<img src="{% static 'images/1b.png' %}" class="rounded-circle" width="200" height="200" alt="Cinque">
+			<h4>Tuan Nguyen <br>tuanallejo12@gmail.com</h4>
+		</div>
+		<div class="col-sm-6">
+			<img src="{% static 'images/1b.png' %}" class="rounded-circle" width="200" height="200" alt="Cinque">
+			<h4>William Schulkins  <br>Schulkinswschulkins@gmail.com</h4>
+		</div>  
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<img src="{% static 'images/1b.png' %}" class="rounded-circle" width="200" height="200" alt="Cinque">
+			<h4>Kuldeep Bhadoria  <br>kuldeepbhadoria88@gmail.com</h4>
+			
+		</div>
+		<div class="col-sm-6">
+			<img src="{% static 'images/1a.png' %}" class="rounded-circle" width="200" height="200" alt="Cinque">
+			<h4>Arvin Nguyen  <br>dungucd@yahoo.com</h4>
+			
+		</div>  
+	</div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

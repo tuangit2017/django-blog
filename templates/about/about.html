@@ -1,0 +1,87 @@
+
+{% extends "base.html" %}
+{% block page_title %} About {% endblock  %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+  <!-- Title -->
+  <!-- Title -->
+<h1 class="mt-4">Misson College</h1>
+<h3 class="text-center"><strong>Mission College</strong> - Department of CIS</h3>
+
+<h4 ><strong>Class:</strong> Advanced Python Programming (CIS 008)</h4>
+
+<h4><strong>Book: </strong>Introduction to Algorithms, 3rd Edition Thomas Cormen, Charles </h4>
+<hr>
+<h4 class="text-center">Final Group Project (25 pts)</h4>
+<h4 class="text-center">Instructor: Ahmed Ezzat</h4>
+<hr>
+
+<h5>
+Project Topic is creating a Website blog using the development Django/Framework. Also, we write a scripts
+to import csv files holing information of movies database to display the chart. The script require using Matplotlib library.
+</h5>
+<hr>
+<h2 class="text-danger">Python/Django Framework</h2>
+<p>Before we can use Django, we have to install it. The system require to have python install first.
+You can search how to download python and install it. After you install python, there is a lightweight database
+called SQLite includes. It's better to get the latest version of Python at https://www.python.org/downloads/ or 
+with your operating system’s package manager.</p>
+<p>You can verify that Python is installed by typing python from your shell; you should see the version of python installed.</p>
+<p>To verify that Django can be seen by Python, type python from your shell. Then at the Python prompt, try to import Django,
+then print(django.get_version()).</p>
+<h2 class="text-danger">Project Requirement Installed</h2>
+<ul>
+	<li>backcall==0.1.0</li>
+	<li>colorama==0.4.1</li>
+	<li>decorator==4.4.0</li>
+	<li>Django==2.2</li>
+	<li>django-extensions==2.2.1</li>
+	<li>django-taggit==1.1.0</li>
+	<li>ipython==7.8.0</li>
+	<li>ipython-genutils==0.2.0</li>
+	<li>jedi==0.15.1</li>
+	<li>parso==0.5.1</li>
+	<li>pickleshare==0.7.5</li>
+	<li>Pillow==6.1.0</li>
+	<li>prompt-toolkit==2.0.9</li>
+	<li>Pygments==2.4.2</li>
+	<li>pytz==2019.2</li>
+	<li>six==1.12.0</li>
+	<li>sqlparse==0.3.0</li>
+	<li>traitlets==4.3.2</li>
+	<li>wcwidth==0.1.7</li>
+</ul>
+<h2 class="text-danger">Python and Data Science</h2>
+<p>Project idea will be perform analysis of movies released in the cinema between 2000 and 2019
+  where we use an API to interface with IMDB and get practice with plotting and data visualizations
+  using modules such as matplotlib, pandas, and seaborn. We also build an website using Django framework
+  to display the result as well as information of the projects
+</p>
+<h2 class="text-danger">Introduction</h2>
+<p>The Internet Movie Database (IMDb) is a website that serves as an online database of world cinema.
+  This website contains a large number of public data on films such as the title of the film, the year of release
+  of the film, the genre of the film, the audience, the rating of critics, the duration of the film, the summary of
+  the film, actors, directors and much more. Faced with the large amount of data available on this site, so, it would
+  be interesting to analyze the movies data on the IMDb website between the year 2000 and the year 2019.
+</p>
+
+<h2 class="text-danger">Target</h2>
+<p>The team should do prepare to collect the data from online, this step may take a long time if the data is not
+  available as a CSV file. Then, after the dataset is ready, we will explore the data and analyze it.
+  Once this step is done, we will model the data, adapt and validate it. During this phase, we should start
+  making questions and trying to predict from the information we got. As I said before, in this study of IMDb,
+  Once the data modeling is complete, the last step is to visualize the results and display the images on the
+  website.
+</p>
+<p>In fact, the purpose of Data Scientist is primarily to make the data talk, to make sense of the data from a
+  large volume of structured or unstructured data, collected or scattered, internal or external, to bring out
+  the useful information that will bring added value in for example a business in order to increase the
+   turnover of a company.
+
+</p>
+</div>
+
+{% endblock %}

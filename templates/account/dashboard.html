@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+{% block page_title %} Dashboard {% endblock  %}
+
+{% block content %}
+
+<!-- Title -->
+<!--
+<p>Welcome to your dashboard. Click here => <a href="/account/edit">to edit your profile</a>.</p>
+
+<h2><b>{{request.user.first_name}}</b></h2>
+<p>Favorite: {{ user.profile.favorite }}</p>
+<img src="{{ user.profile.photo.url }}"  class="rounded-circle"  width="304" height="250"  />
+-->
+<br>
+<h1>Dashboard</h1>
+<hr>
+<div class="jumbotron">
+  <h1 class="display-4">Hello, {{request.user.first_name}}</h1>
+  <p class="lead">Welcome to your dashboard.</p>
+  <hr class="my-4">
+  <img src="{{ user.profile.photo.url }}"  class="rounded-circle"  width="304" height="250"  />
+  <h5 class="card-title">Favorite: {{ user.profile.favorite }}</h5>
+  <p class="card-text">It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="/account/edit" role="button">Edit Profile</a>
+</div>
+
+
+
+
+{% endblock %}

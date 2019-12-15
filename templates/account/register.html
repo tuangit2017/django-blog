@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+{% block page_title %} Register {% endblock  %}
+
+{% block content %}
+
+<!-- Title -->
+<br>
+<div class="alert alert-primary text-center" role="alert">
+<h1 class="display-4">Create New Account</h1>
+</div>
+<p class="hint-text">Please, fill in the box using following form to create your account. It's free and only takes a minute.</p>
+
+<!-- test form -->
+<form action="." method="post">
+ {% csrf_token %}
+
+<div class="signup-form">
+	<div class="form-group">
+		<div class="row">
+			<div class="col-xs-6"><input type="text" class="form-control" name="username" placeholder="User Name" required="required" id="id_username"></div>
+		</div>
+
+	</div>
+	<div  class="form-group">
+		<div class="row">
+			<div class="col-xs-6"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required" id="id_first_name"></div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<input type="email" class="form-control" name="email" placeholder="Email" required="required" id="id_email">
+	</div>
+	<div class="form-group">
+		<input type="password" class="form-control" name="password" placeholder="Password" required="required" id="id_password">
+	</div>
+	<div class="form-group">
+		<input type="password" class="form-control" name="password2" placeholder="Confirm Password" required="required" id="id_password2">
+	</div>
+	<div class="form-group">
+		<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+	</div>
+	<div class="form-group">
+		<input type="submit" class="btn btn-primary btn-lg btn-block" value="Register Now">
+	</div>
+	</form>
+	
+	<div class="text-center">Already have an account? <a href="/account/login">Sign in</a></div>
+</div>
+
+{% endblock %}

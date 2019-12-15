@@ -1,0 +1,18 @@
+project use python37
+django ver 2.2
+---------
+create supper user: admin12
+pwd: pass1122
+
+---------------------------------
+
+create new user:
+ username: test1
+ email: dave123@gmail.com
+pwd: pass1122
+
+username: test2, test3, test4
+username: newuser1
+-----------------------
+
+

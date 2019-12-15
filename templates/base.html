@@ -1,0 +1,173 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Class CIS008 | {% block page_title %} About {% endblock  %}</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/blog-post.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="logo pull-left" href="/"><img src="{% static 'images/logo.png' %}">  </a>
+      <a class="navbar-brand" href="/" ><p class="text-warning">&nbsp &nbsp <strong>Data Science Movies</strong></p></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item {% if page_title == 'Home' %} active{% endif %}">
+            <a class="nav-link" href="/">HOME  </a>
+          </li>
+          <li class="nav-item {% if page_title == 'About' %} active{% endif %}">
+            <a class="nav-link" href="/about/">ABOUT</a>
+          </li>
+          <li class="nav-item {% if page_title == 'Team' %} active{% endif %}" >
+            <a class="nav-link" href="/about/team/">TEAM</a>
+          </li>
+          <li class="nav-item {% if page_title == 'Projects' %} active{% endif %}">
+            <a class="nav-link" href="/about/projects">PROJECTS</a>
+          </li>
+           {% if request.user.is_authenticated %}
+           <li>
+             <a class="nav-link"  href="{% url "dashboard" %}">PROFILE</a>
+           </li>
+           <li >
+             <a class="nav-link" href="{% url "logout" %}">LOGOUT</a>
+           </li>
+           <li><b> Hi! {{ request.user.first_name }}</b></li>
+
+           {% else %}
+           <li class="nav-item {% if page_title == 'Login' %} active{% endif %}" >
+             <a class="nav-link" href="{% url "login" %}">LOGIN</a>
+           </li>
+           <li class="nav-item {% if page_title == 'Register' %} active{% endif %}" >
+             <a class="nav-link" href="{% url "register" %}">SIGN UP</a>
+           </li>
+           {% endif %}
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+		<div class="col-lg-8">
+
+      {% block content %}
+
+      {% endblock content %}
+
+      <hr>
+      <hr>
+        <blockquote class="blockquote">
+          <p class="mb-0">As a group project, we do design, identify ideas, and implement coding in Python</p>
+          <footer class="blockquote-footer">Data Science and
+            <cite title="Source Title">Django Framework</cite>
+          </footer>
+        </blockquote>
+
+
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <form method="get" name="searchform" action="https://www.google.com/search" target="_blank" novalidate="">
+        <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+
+              <input autocomplete="on" type="text" name="q"  class="form-control search" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+
+            </div>
+          </div>
+        </div>
+        </form>
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Categories</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                    <li><a href="https://www.tutorialspoint.com/numpy/index.htm">Numpy</a></li>
+                    <li><a href="https://www.tutorialspoint.com/python_pandas/index.htm">Pandas</a></li>
+                    <li><a href="https://www.tutorialspoint.com/matplotlib/index.htm">Matplotlib</a></li>
+                    <li><a href="https://www.tutorialspoint.com/seaborn/index.htm">Seanborn</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li><a href="https://www.w3schools.com/html/html_entities.asp">HTML</a></li>
+                  <li><a href="https://www.w3schools.com/js/default.asp">JavaScript</a></li>
+                  <li><a href="https://www.w3schools.com/css/default.asp">CSS</a></li>
+                  <li><a href="https://awesome-python.com/">Python</a></li>
+                  <li><a href="https://tutorial.djangogirls.org/en/">Python/Django Framework</a></li>
+                  <li><a href="https://www.shutterstock.com/">Free Images</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Side Widget</h5>
+          <div class="card-body">
+            <p>The purpose of this study on data science project is to practise of using python library such as Numpy,
+               Pandas, and Matplotlib. we also use Django framework to get ideas of full-stack development from
+               the structure web-serverice between backend and front end with Model-View-Controller strategy.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Mission College, Class CIS008, Data Science Movies Project - Website Created 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

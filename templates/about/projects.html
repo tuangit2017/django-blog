@@ -1,0 +1,85 @@
+
+{% extends "base.html" %}
+{% block page_title %} About {% endblock  %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Title -->
+<h1 class="mt-4">Python and Data Science</h1>
+<h2>Analysis about the Internet Movie Database (IMDb) between year 2000 to 2019 </h2>
+
+<hr>
+<div id="data_container"></div>
+  <script src="{% static 'hightchart/highcharts.src.js' %}"></script>
+  <input type="hidden" id="myVar" name="variable" value="{{ variable }}">
+
+  <script>
+	var list = {{variable|safe}}
+
+
+Highcharts.chart('data_container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Top Movies Gross(Million Seconds)'
+    },
+    xAxis: {
+        categories: ['Mystery','Comedy','Drama','Adventure','Crime','Drama','Comedy','Action','Adventure']
+    },
+    series: [{
+          name: 'Month one',
+          data: [25.54,30.33,3.64,233.63,15.07,95.01,166.24,215.41,45.51]
+      }, {
+          name: 'Month two',
+          data: [101.65,128.08,113.33,32.53,39.24,157.02,90.57,53.33,39.79]
+      }, {
+          name: 'Month Three',
+          data: list
+      },{
+          name: 'Month Four',
+          data: [124.12,115.65,182.81,260.04,71.51,125.31,106.81,106.83,27.28]
+      }
+    ]
+});
+
+</script>
+
+<h2>Histogram of Action Movies on 2017<h2>
+<div id="data_container2"></div>
+
+<script>
+var movies_name_data = {{movies_name|safe}}
+var time_min_data = {{time_min|safe}}
+var rate_data = {{rate|safe}}
+//var votes_data = {{votes|safe}}
+
+Highcharts.chart('data_container2', {
+  chart: {
+      type: 'column'
+  },
+  title: {
+      text: 'Action Movies Year 2017'
+  },
+  xAxis: {
+      categories: movies_name_data
+  },
+  series: [{
+        name: 'Time(Minutes)',
+        data: time_min_data
+    }, {
+        name: 'Rating',
+        data: rate_data
+    }, {
+        name: 'Votes',
+        //data: votes_data
+    }
+  ]
+});
+
+</script>
+
+
+{% endblock %}
